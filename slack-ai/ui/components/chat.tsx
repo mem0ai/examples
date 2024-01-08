@@ -73,16 +73,6 @@ export function ChatCard({ sessionId }: ChatCardProps) {
     }
   };
 
-  const onModeChange = async () => {
-    if (mode === "add") {
-      setPlaceholder("Ask question");
-      setMode("query");
-    } else {
-      setPlaceholder("Add data (enter text or url)");
-      setMode("add");
-    }
-  };
-
   return (
     <>
       <Card>
@@ -125,14 +115,6 @@ export function ChatCard({ sessionId }: ChatCardProps) {
             }}
             className="flex w-full items-center space-x-2"
           >
-            <div className="flex-col flex items-center">
-              <div className="flex items-center">
-                <Switch onCheckedChange={onModeChange} />
-              </div>
-              <label className="text-[9px] mt-1 text-muted-foreground">
-                mode: {mode}
-              </label>
-            </div>
             <Input
               id="message"
               placeholder={placeholder}

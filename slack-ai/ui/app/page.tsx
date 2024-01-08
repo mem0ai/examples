@@ -29,7 +29,7 @@ export default function Page() {
               {" "}
               {/* Right-align heading and tooltip */}
               <h2 className="text-2xl font-semibold tracking-tight">
-                Chat with your documents
+                Slack AI
               </h2>
             </div>
           </div>
