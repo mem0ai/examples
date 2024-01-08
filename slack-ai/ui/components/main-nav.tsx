@@ -1,7 +1,3 @@
-"use client";
-
-// import GitHubButton from "react-github-btn";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,34 +33,6 @@ export function MainNav({
       >
         GitHub
       </Link>
-      {/* <Link
-        href="https://github.com/embedchain/embedchain"
-        className="text-sm font-light text-muted-foreground transition-colors hover:text-primary hover:text-black"
-        target="_blank"
-      >
-        GitHub
-      </Link>
-      <Link
-        href="https://github.com/embedchain/embedchain"
-        className="text-sm font-light text-muted-foreground transition-colors hover:text-primary hover:text-black"
-        target="_blank"
-      >
-        GitHub
-      </Link>
-      <Link
-        href="https://join.slack.com/t/embedchain/shared_invite/zt-22uwz3c46-Zg7cIh5rOBteT_xe1jwLDw"
-        className="text-sm font-light text-muted-foreground transition-colors hover:text-primary hover:text-black"
-        target="_blank"
-      >
-        Slack
-      </Link>
-      <Link
-        href="https://docs.embedchain.ai"
-        className="text-sm font-light text-muted-foreground transition-colors hover:text-primary hover:text-black"
-        target="_blank"
-      >
-        Docs
-      </Link> */}
     </nav>
   );
 }

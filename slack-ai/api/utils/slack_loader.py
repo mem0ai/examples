@@ -6,7 +6,6 @@ from typing import Any, Dict, Optional
 from urllib.parse import parse_qs, urlparse
 
 import certifi
-
 from embedchain.loaders.base_loader import BaseLoader
 from embedchain.utils.misc import clean_string
 
