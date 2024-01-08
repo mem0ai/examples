@@ -7,7 +7,13 @@ This directory contains code on how to build your own Slack AI to chat with the 
 
 ## Getting started
 
-### Step 1: Fetch slack user token
+Create a slack bot involves  3 steps
+
+• Create slack user
+• Set environment variables
+• Run the app locally
+
+### Step 1: Create slack user token
 
 Follow the steps given below to fetch your slack user token to get data through Slack APIs:
 
