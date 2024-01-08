@@ -1,4 +1,5 @@
 from slack_ec_app.app import app as ec_app
+from slack_ec_app.app import loader, chunker
 from fastapi import APIRouter, Query, responses
 from pydantic import BaseModel
 
