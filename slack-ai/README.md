@@ -1,0 +1,60 @@
+# Slack AI
+
+This directory contains code on how to build your own Slack AI to chat with the unstructured data lying in your slack channels.
+
+<img src="ui/public/slack-ai.png" alt="slack ai demo" width="800"/>
+
+
+## Getting started
+
+### Step 1: Fetch slack user token
+
+Follow the steps given below to fetch your slack user token to get data through Slack APIs:
+
+1. Create a workspace on Slack if you don’t have one already by clicking [here](https://slack.com/intl/en-in/).
+2. Create a new App on your Slack account by going [here](https://api.slack.com/apps).
+3. Select `From Scratch`, then enter the App Name and select your workspace.
+4. Navigate to `OAuth & Permissions` tab from the left sidebar and go to the `scopes` section. Add the following scopes under `User Token Scopes`:
+
+    ```
+    # Following scopes are needed for reading channel history
+    channels:history
+    channels:read
+
+    # Following scopes are needed to fetch list of channels from slack
+    groups:read
+    mpim:read
+    im:read
+    ```
+
+5. Click on the `Install to Workspace` button under `OAuth Tokens for Your Workspace` section in the same page and install the app in your slack workspace.
+6. After installing the app you will see the `User OAuth Token`, save that token as you will need to configure it as `SLACK_USER_TOKEN` for this demo.
+
+### Step 2: Set environment variables
+
+Navigate to `api` folder and set your `OPENAI_API_KEY` and `SLACK_USER_TOKEN` in `.env.example` file. Then rename the `.env.example` file to `.env`.
+
+
+### Step 3: Run app locally
+
+Follow the instructions given below to run app locally based on your development setup (with docker or without docker):
+
+#### With docker
+
+```bash
+docker-compose build
+ec start --docker
+```
+
+#### Without docker
+
+```bash
+ec install-reqs
+ec start
+```
+
+Finally, you will have the Slack AI frontend running on http://localhost:3000. You can also access the REST APIs on http://localhost:8000.
+
+## Credits
+
+This demo was built using the Embedchain's [full stack demo template](https://docs.embedchain.ai/get-started/full-stack). Follow the instructions [given here](https://docs.embedchain.ai/get-started/full-stack) to create your own full stack RAG application.
