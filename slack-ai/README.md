@@ -38,7 +38,7 @@ Follow the steps given below to fetch your slack user token to get data through 
 
 ### Step 2: Set environment variables
 
-Navigate to `api` folder and set your `OPENAI_API_KEY` and `SLACK_USER_TOKEN` in `.env.example` file. Then rename the `.env.example` file to `.env`.
+Navigate to `api` folder and set your `HUGGINGFACE_ACCESS_TOKEN` and `SLACK_USER_TOKEN` in `.env.example` file. Then rename the `.env.example` file to `.env`.
 
 
 ### Step 3: Run app locally
