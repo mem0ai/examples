@@ -140,3 +140,22 @@ class SlackLoader(BaseLoader):
             raise ValueError(
                 f"Error in loading slack data: {e}. Check `https://docs.embedchain.ai/components/data-sources/slack` to learn more."  # noqa:E501
             ) from e
+    
+    def get_channels(self, user_token):
+        try:
+            results = self.client.conversations_list(
+                token=user_token,
+                type="public_channel",
+                limit=100)
+            channels = results.get("channels")
+            public_channels = []
+            for channel in channels:
+                if channel.get("is_channel", False):
+                    public_channels.append(channel)
+            return public_channels
+        except Exception as e:
+            logging.warning(f"Error in loading slack channels: {e}")
+            raise ValueError(
+                f"Error in loading slack channels: {e}. Check `https://docs.embedchain.ai/components/data-sources/slack` to learn more."  # noqa:E501
+            ) from e
+                

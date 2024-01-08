@@ -1,5 +1,5 @@
-from slack_ec_app.app import app as ec_app
-from slack_ec_app.app import loader, chunker
+from utils.app import app as ec_app
+from utils.app import loader, chunker
 from fastapi import APIRouter, Query, responses
 from pydantic import BaseModel
 
@@ -12,7 +12,6 @@ class SourceModel(BaseModel):
 class QuestionModel(BaseModel):
     question: str
     session_id: str
-
 
 @router.post("/api/v1/add")
 async def add_source(source_model: SourceModel):
@@ -41,6 +40,18 @@ async def handle_chat(query: str, session_id: str = Query(None)):
         response = f"An error occurred: Error message: {str(e)}. Contact Embedchain founders on Slack: https://embedchain.com/slack or Discord: https://embedchain.com/discord"  # noqa:E501
     return {"response": response}
 
+@router.get("/api/v1/channels")
+async def handle_channels(slack_user_token: str):
+    """
+    Handles a channel list request to the Embedchain app.
+    Accepts 'user_token' as a query parameter.
+    """
+    try:
+        response = loader.get_channels(slack_user_token)
+        return {"message": response}
+    except Exception as e:
+        response = f"An error occurred: Error message: {str(e)}. Contact Embedchain founders on Slack: https://embedchain.com/slack or Discord: https://embedchain.com/discord"
+        return {"message": response}
 
 @router.get("/")
 async def root():
